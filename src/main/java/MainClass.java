@@ -1,26 +1,23 @@
-import java.io.File;
-import java.io.FileInputStream;import java.io.IOException;
+import BinaryHuffmanCoding.Huffman;
+import StringHuffmanCoding.MyHuffman;
+import java.io.IOException;
 
 public class MainClass {
-  public static void main(String args[]) throws IOException {
+  public static void main(String[] args) throws IOException {
+    String toCompressFile = "triangles.txt";
     String compressedFile = "triangles.txt.huff";
-    String fileName = "tri.txt";
 
-//    File jabber =  new File(compressedFile);
-//    FileInputStream testin = new FileInputStream(jabber);
-//    BitReader testBR = new BitReader(testin);
-//    Huffman testHF = new Huffman(testBR);
-//    //testHF.decode(testHF.bytes, testBR, System.out);
-//    testHF.decompress(compressedFile);
-//    testin.close();
+    String toCompressFile2 = "square.txt";
+    String compressedFile2 = "square.txt.huff";
 
-    File jabber2 =  new File(compressedFile);
-    FileInputStream testout = new FileInputStream(jabber2);
-    BitReader testBR2 = new BitReader(testout);
-    Huffman testHF2 = new Huffman(testBR2);
-    testHF2.compress(fileName);
-    testout.close();
+    Huffman.decompress(compressedFile2);
+    Huffman.compress(toCompressFile);
 
+    // can use xxd command in git bash to show binary content of file(xxd -b triangles.txt.huff)
 
+    MyHuffman.compressFile(toCompressFile);
+    MyHuffman.decompressFile(compressedFile);
+    MyHuffman.compressFile(toCompressFile2);
+    MyHuffman.decompressFile(compressedFile2);
   }
 }
